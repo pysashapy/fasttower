@@ -1,5 +1,3 @@
-from modulefinder import Module
-
 import importlib
 import os
 import sys
@@ -18,8 +16,9 @@ class Settings:
             if current_dir not in sys.path:
                 sys.path.append(current_dir)
             self.settings = importlib.import_module(settings_module)
-        except Exception as e:
-            self.settings = Module('settings')
+        except Exception:
+            self.settings = {}
+            return
         self.extend_settings()
 
     def extend_settings(self):

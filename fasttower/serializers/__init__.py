@@ -28,19 +28,6 @@ class ModelSerializer(BaseModel):
     def __init__(self, instance: Any, **kwargs):
         self.instance = instance
         data = {field: getattr(instance, field) for field in self.Config.fields}
-
-        # Обработка вложенных сериализаторов
-        for field in self.Config.fields:
-            field_type = self.__annotations__.get(field)
-            if isinstance(field_type, type) and issubclass(field_type, ModelSerializer):
-                related_instances = getattr(instance, field)
-                if isinstance(related_instances, list):
-                    data[field] = [field_type(pet) for pet in related_instances]
-                elif related_instances:
-                    data[field] = field_type(related_instances)
-                else:
-                    data[field] = None
-
         super().__init__(**kwargs, **data)
 
     def __str__(self):
@@ -55,8 +42,10 @@ class ModelSerializer(BaseModel):
         config = getattr(cls, 'Config', None)
         model = config.model
         fields = config.fields
+        print('АЛЕЕЕ!"1111111111111№', fields)
         for field_name in fields:
             field = model._meta.fields_map.get(field_name, None)
+            print(field)
             if isinstance(field, models.Field):
                 pydantic_type = cls.get_pydantic_field_type(field)
                 if pydantic_type:

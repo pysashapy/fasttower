@@ -9,6 +9,7 @@ SECRET_KEY = "{{ secret_key }}"
 DEBUG = True
 
 INSTALLED_APPS = [
+    'fasttower.apps.taerich',
 
 ]
 
@@ -28,14 +29,4 @@ DATABASES = {
             }
         },
     },
-    "apps": {
-        "base": {
-            "models": [
-                "aerich.models",
-            ],
-            "default_connection": "default",
-        },
-    },
-    "use_tz": USE_TZ,
-    "timezone": TIME_ZONE,
 }

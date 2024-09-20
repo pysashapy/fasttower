@@ -8,7 +8,7 @@ from fasttower.blueprints.commands import blueprints_commands
 
 app = typer.Typer()
 
-for typer_app in settings.COMMANDS + [
+for typer_app in getattr(settings, 'COMMANDS', []) + [
     db_commands,
     blueprints_commands
 ]:
