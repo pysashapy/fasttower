@@ -1,0 +1,15 @@
+"""
+ASGI config for {{project_name}} project.
+
+It exposes the ASGI callable as a module-level variable named ``application``.
+"""
+
+import os
+os.environ.setdefault("FASTTOWER_SETTINGS_MODULE", "{{project_name}}.settings")
+
+from fastapi import FastAPI
+from fasttower.db import lifespan
+from {{project_name}}.routers import router
+
+app = FastAPI(title="FastTower API Documentation", lifespan=lifespan)
+app.include_router(router)
