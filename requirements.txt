@@ -1,0 +1,7 @@
+typer==0.12.5
+fastapi==0.115.0
+tortoise-orm==0.21.6
+aerich==0.7.2
+scrypt==0.8.24
+Jinja2==3.1.4
+uvicorn==0.30.6
