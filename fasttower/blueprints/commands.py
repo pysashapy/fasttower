@@ -59,6 +59,7 @@ def a(app_name: str) -> None:
     templates = {
         "__init__.py.jinja": os.path.join(app_path, "__init__.py"),
         "config.py.jinja": os.path.join(app_path, "config.py"),
+        "admin.py.jinja": os.path.join(app_path, "admin.py"),
         "models.py.jinja": os.path.join(app_path, "models.py"),
         "routers.py.jinja": os.path.join(app_path, "routers.py"),
         "serializer.py.jinja": os.path.join(app_path, "serializer.py"),

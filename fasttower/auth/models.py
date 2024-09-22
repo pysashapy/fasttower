@@ -8,10 +8,10 @@ class AbstractUser(AbstractBaseUser):
     email = models.CharField(max_length=254, default='')
 
     is_staff: bool = models.BooleanField(default=False)
-    is_active: bool = models.BooleanField(default=True)
 
     date_joined = models.DatetimeField(default=timezone.now)
 
+    @property
     def is_superuser(self):
         return self.is_staff
 
@@ -20,10 +20,11 @@ class AbstractUser(AbstractBaseUser):
 
 
 class BaseUser(AbstractUser):
-    pass
+    is_active: bool = models.BooleanField(default=True)
 
-    class Meta:
-        abstract = True
+    #
+    # class Meta:
+    #     abstract = True
 
 
 class AnonymousUser:

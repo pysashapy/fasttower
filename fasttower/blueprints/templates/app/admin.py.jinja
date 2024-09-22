@@ -1,0 +1,12 @@
+from fastapi_admin.resources import Model, Dropdown
+from fasttower import admin
+
+from {{ app_name }} import models
+
+
+@admin.site.app.register
+class {{ app_name | capitalize }}TabMenu(Dropdown):
+    label = "{{ app_name | capitalize }}s"
+    icon = "fas fa-bars"
+    resources = []
+    title = "{{ app_name | capitalize }}s"

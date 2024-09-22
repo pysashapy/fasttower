@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+{% block page_body %}
+<style>
+    .content-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+    }
+
+    .info-block {
+        background-color: #f7f7f7;
+        border-radius: 8px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-block h2 {
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    .info-block p {
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .highlight {
+        color: #ff4081;
+        font-weight: bold;
+    }
+    pre {
+        padding: 2rem ;
+        border-radius: 5px;
+        }
+    code {
+        white-space: pre;
+        overflow-x: auto;
+    }
+</style>
+<div class="content-container">
+    <h1 class="title">Welcome to FastTower Admin</h1>
+
+    <div class="info-block">
+        <h2>What is <span class="highlight">FastTower</span>?</h2>
+        <p>FastTower is a powerful, high-performance web framework built on top of <span
+                class="highlight">FastAPI</span>. It combines the flexibility and speed of FastAPI with a Django-like
+            structure to help developers create scalable, maintainable applications quickly.</p>
+    </div>
+
+    <div class="info-block">
+        <h2>Key Features</h2>
+        <p>FastTower brings the best of both worlds by merging the simplicity of Django and the modern capabilities of
+            FastAPI:</p>
+        <ul>
+            <li><span class="highlight">Model-Driven Development</span> – Simplify your workflow with built-in support
+                for models and serialization.
+            </li>
+            <li><span class="highlight">CLI Tools</span> – Manage migrations, run servers, and handle project operations
+                with ease using our command-line tools.
+            </li>
+            <li><span class="highlight">Swagger Integration</span> – Automatically generate interactive API
+                documentation with integrated Swagger support.
+            </li>
+        </ul>
+    </div>
+
+    <div class="info-block">
+        <h2>Customize Your Dashboard</h2>
+        <p>You can fully customize this admin dashboard by creating your own template. To do so, you can use the
+            following command to add your template folder:
+        </p>
+        <pre><code>from fastapi_admin.template import add_template_folder
+add_template_folder('path/to/dashboard.html')</code></pre>
+        <p>Once your template is added, you can extend the default layout and insert your own content:</p>
+        <pre><code>{% raw %}{% extends 'layout.html' %}
+{% block page_body %}
+  --YOUR HTML HERE--
+{% endblock %}
+{% endraw %}</code></pre>
+        <p>FastTower will automatically use your custom template for the admin page, allowing you to personalize the
+            experience.</p>
+    </div>
+</div>
+</div>
+{% endblock %}

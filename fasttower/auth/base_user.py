@@ -28,7 +28,12 @@ class AbstractBaseUser(models.Model):
         """
         return True
 
-    def set_password(self, password: str) -> None:
+    @property
+    def password(self):
+        return self.password_hash
+
+    @password.setter
+    def password(self, password: str) -> None:
         self.password_hash = hash_password(password)
 
     def check_password(self, password: str) -> bool:

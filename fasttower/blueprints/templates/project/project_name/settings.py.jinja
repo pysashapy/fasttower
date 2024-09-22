@@ -10,8 +10,11 @@ DEBUG = True
 
 INSTALLED_APPS = [
     'fasttower.apps.taerich',
-
+    'fasttower.auth',
 ]
+
+USER_MODEL = 'fasttower.auth.models:BaseUser'
+
 
 ASGI = "{{ project_name }}.asgi:app"
 

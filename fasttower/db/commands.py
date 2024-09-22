@@ -1,8 +1,9 @@
 import asyncio
+from typing import Annotated, Optional
+
 import typer
 from aerich import Command
 from tortoise import Tortoise
-from typing import Annotated, Optional
 
 from fasttower.conf import settings
 from fasttower.db import initialize_tortoise
@@ -28,22 +29,21 @@ async def run_aerich_command(action: str, app_name: Optional[str] = None,
     """
     try:
         await initialize_tortoise()
-        app_names = [app_name] if app_name is not None else settings.DATABASES['apps'].keys()
-
-        for name in app_names:
+        apps = [app_name] if app_name is not None else settings.DATABASES['apps'].keys()
+        for app in apps:
             try:
-                typer.echo(f"🔄 {action.capitalize()} for application: {name}")
-                aerich_command = Command(tortoise_config=settings.DATABASES, app=name)
+                typer.echo(f"🔄 {action.capitalize()} for application: {app}")
+                aerich_command = Command(tortoise_config=settings.DATABASES, app=app)
                 await aerich_command.init()
-
                 if action == "initialization":
                     await aerich_command.init_db(safe)
                 elif action == "create migrations":
-                    await aerich_command.migrate(name)
+                    await aerich_command.migrate(app)
                 elif action == "apply migrations":
                     await aerich_command.upgrade(transaction)
             except Exception as e:
-                typer.echo(f"❌ Error in application '{name}': {str(e)}")
+                raise e
+                typer.echo(f"❌ Error in application '{app}': {str(e)}", err=True)
                 continue
     finally:
         await Tortoise.close_connections()
@@ -105,3 +105,4 @@ def migrate(
 
 if __name__ == "__main__":
     db_commands()
+# from aerich.migrate.Migrate
