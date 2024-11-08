@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fasttower"
-version = "0.1.4"
+version = "0.1.4a"
 description = "A Django-like framework built on FastAPI"
 authors = ["Alexander Ibragmov <sasha.2000ibr@gmail.com>"]
 license = "MIT"
@@ -13,7 +13,6 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Framework :: FastAPI",
-    "Development Status :: 0.1.4 - Beta",
 ]
 
 packages = [
