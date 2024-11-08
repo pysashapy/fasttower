@@ -1,27 +1,24 @@
 import uuid
 
-from fastapi_admin.models import AbstractAdmin
 import redis.asyncio as redis
 from fastapi import Depends
 from fastapi_admin import constants
 from fastapi_admin.depends import get_redis
-from fastapi_admin.template import templates
 from fastapi_admin.i18n import _
+from fastapi_admin.models import AbstractAdmin
 from fastapi_admin.providers.login import UsernamePasswordProvider
+from fastapi_admin.template import templates
 from starlette.requests import Request
 from starlette.responses import RedirectResponse
 from starlette.status import HTTP_303_SEE_OTHER, HTTP_401_UNAUTHORIZED
+from fasttower.auth.models import AnonymousUser
 
 
 class AdminUserProvider(UsernamePasswordProvider):
     async def get_admin(self, request: Request, username: str, password: str):
         admin = await self.admin_model.get_or_none(username=username)
         if not admin or not admin.check_password(password) or not admin.is_superuser:
-            return templates.TemplateResponse(
-                self.template,
-                status_code=HTTP_401_UNAUTHORIZED,
-                context={"request": request, "error": _("login_failed")},
-            )
+            return AnonymousUser()
         return admin
 
     async def login(self, request: Request, redis: redis.Redis = Depends(get_redis)):
@@ -30,6 +27,14 @@ class AdminUserProvider(UsernamePasswordProvider):
         password = form.get("password")
         remember_me = form.get("remember_me")
         admin = await self.get_admin(request, username, password)
+
+        if getattr(admin, "is_anonymous", True):
+            return templates.TemplateResponse(
+                self.template,
+                status_code=HTTP_401_UNAUTHORIZED,
+                context={"request": request, "error": _("login_failed")},
+            )
+
         response = RedirectResponse(url=request.app.admin_path, status_code=HTTP_303_SEE_OTHER)
         if remember_me == "on":
             expire = 3600 * 24 * 30

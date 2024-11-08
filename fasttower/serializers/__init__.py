@@ -42,10 +42,8 @@ class ModelSerializer(BaseModel):
         config = getattr(cls, 'Config', None)
         model = config.model
         fields = config.fields
-        print('АЛЕЕЕ!"1111111111111№', fields)
         for field_name in fields:
             field = model._meta.fields_map.get(field_name, None)
-            print(field)
             if isinstance(field, models.Field):
                 pydantic_type = cls.get_pydantic_field_type(field)
                 if pydantic_type:

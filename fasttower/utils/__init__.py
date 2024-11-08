@@ -4,13 +4,12 @@ from typing import Type, List, Callable
 
 from fastapi import FastAPI
 from tortoise import timezone
-from tortoise.contrib.fastapi import register_tortoise as register_orm
+from tortoise.contrib.fastapi import register_tortoise
 
 
 def get_module(path: str):
     try:
         path, module = path.rsplit(':', maxsplit=1)
-        print(path, module)
         module = getattr(import_module(path), module)
     except ModuleNotFoundError as e:
         raise e
@@ -43,6 +42,16 @@ def setup():
             import_module(f'{app}.admin')
         except ModuleNotFoundError:
             pass
+
+
+def register_orm(app: FastAPI, **kwargs):
+    from fasttower.conf import settings
+    return register_tortoise(
+        app,
+        config=settings.DATABASES,
+        generate_schemas=True,
+        **kwargs
+    )
 
 
 __all__ = [

@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "fasttower"
+version = "0.1.4"
+description = "A Django-like framework built on FastAPI"
+authors = ["Alexander Ibragmov <sasha.2000ibr@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/pysashapy/FastTower"
+repository = "https://github.com/pysashapy/FastTower.git"
+keywords = ["framework", "FastAPI", "Django-like", "Python"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Framework :: FastAPI",
+    "Development Status :: 4 - Beta",
+]
+
+packages = [
+    { include = "fasttower" }
+]
+include = ["README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+typer = ">=0.12.5"
+fastapi = ">=0.115.0"
+scrypt = ">=0.8.24"
+Jinja2 = ">=3.1.4"
+uvicorn = ">=0.30.6"
+ipython = ">=8.27.0"
+tortoise-orm = ">=0.21.6"
+aerich = { git = "https://github.com/pysashapy/taerich.git" }
+fastapi-admin = { git = "https://github.com/fastapi-admin/fastapi-admin.git" }
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+flake8 = "*"
+mypy = "*"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+tower = "fasttower.cli:app"
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.mypy]
+pretty = true
+ignore_missing_imports = true
+
+[tool.ruff.lint]
+ignore = ['E501']

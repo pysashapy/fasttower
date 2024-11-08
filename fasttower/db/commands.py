@@ -38,7 +38,7 @@ async def run_aerich_command(action: str, app_name: Optional[str] = None,
                 if action == "initialization":
                     await aerich_command.init_db(safe)
                 elif action == "create migrations":
-                    await aerich_command.migrate(app)
+                    await aerich_command.migrate()
                 elif action == "apply migrations":
                     await aerich_command.upgrade(transaction)
             except Exception as e:

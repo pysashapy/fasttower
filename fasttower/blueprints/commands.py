@@ -62,7 +62,7 @@ def a(app_name: str) -> None:
         "admin.py.jinja": os.path.join(app_path, "admin.py"),
         "models.py.jinja": os.path.join(app_path, "models.py"),
         "routers.py.jinja": os.path.join(app_path, "routers.py"),
-        "serializer.py.jinja": os.path.join(app_path, "serializer.py"),
+        "serializers.py.jinja": os.path.join(app_path, "serializers.py"),
         "views.py.jinja": os.path.join(app_path, "views.py"),
     }
 

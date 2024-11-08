@@ -33,8 +33,9 @@ app.add_middleware(
 
 @asynccontextmanager
 async def lifespan_admin(app: FastAPI):
+    from fasttower.conf import settings
     r = redis.from_url(
-        "redis://localhost",
+        settings.ADMIN_PANEL_REDIS,
         decode_responses=True,
         encoding="utf8",
     )
