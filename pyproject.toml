@@ -29,13 +29,8 @@ Jinja2 = ">=3.1.4"
 uvicorn = ">=0.30.6"
 ipython = ">=8.27.0"
 tortoise-orm = ">=0.21.6"
-aerich = { git = "https://github.com/pysashapy/taerich.git" }
-fastapi-admin = { git = "https://github.com/fastapi-admin/fastapi-admin.git" }
-
-[tool.poetry.group.dev.dependencies]
-black = "*"
-flake8 = "*"
-mypy = "*"
+aerich = ">=0.7.2"
+fastapi-admin = ">=1.0.4"
 
 
 [build-system]
