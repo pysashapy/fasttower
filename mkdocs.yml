@@ -1,0 +1,112 @@
+site_name: FastTower
+site_description: FastTower framework, high performance, easy to learn, fast to code, ready for production
+repo_name: pysashapy/fasttower
+repo_url: https://github.com/pysashapy/fasttower
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  icon:
+    repo: fontawesome/brands/github-alt
+  language: ru
+
+plugins:
+  # Material for MkDocs
+  search:
+  mkdocstrings:
+    handlers:
+      python:
+        options:
+          extensions:
+            - griffe_typingdoc
+          show_root_heading: true
+          show_if_no_docstring: true
+          preload_modules:
+            - httpx
+            - starlette
+          inherited_members: true
+          members_order: source
+          separate_signature: true
+          unwrap_annotated: true
+          filters:
+            - '!^_'
+          merge_init_into_class: true
+          docstring_section_style: spacy
+          signature_crossrefs: true
+          show_symbol_type_heading: true
+          show_symbol_type_toc: true
+
+nav:
+  - Быстрый старт: index.md
+
+markdown_extensions:
+  abbr:
+  attr_list:
+  footnotes:
+  md_in_html:
+  tables:
+  toc:
+    permalink: true
+
+  # Python Markdown Extensions
+  pymdownx.betterem:
+  pymdownx.caret:
+  pymdownx.highlight:
+    line_spans: __span
+  pymdownx.inlinehilite:
+  pymdownx.keys:
+  pymdownx.mark:
+  pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+  pymdownx.tilde:
+
+  # pymdownx blocks
+  pymdownx.blocks.admonition:
+    types:
+      - note
+      - attention
+      - caution
+      - danger
+      - error
+      - tip
+      - hint
+      - warning
+      # Custom types
+      - info
+      - check
+  pymdownx.blocks.details:
+  pymdownx.blocks.tab:
+    alternate_style: True
+
+  # Other extensions
+  mdx_include:
+  markdown_include_variants:
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/pysashapy/fasttower
