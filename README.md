@@ -177,7 +177,7 @@ INSTALLED_APPS = [
     ...
     'appexample',
 ]
-```[4-14.url](..%2F..%2FAppData%2FLocal%2FTemp%2F4-14.url)
+```
 
 ##### MIDDLEWARE
 
