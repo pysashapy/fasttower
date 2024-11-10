@@ -5,8 +5,8 @@ description = "A Django-like framework built on FastAPI"
 authors = ["Alexander Ibragmov <sasha.2000ibr@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/pysashapy/FastTower"
-repository = "https://github.com/pysashapy/FastTower.git"
+homepage = "https://github.com/pysashapy/fasttower"
+repository = "https://github.com/pysashapy/fasttower.git"
 keywords = ["framework", "FastAPI", "Django-like", "Python"]
 classifiers = [
     "Programming Language :: Python :: 3",
