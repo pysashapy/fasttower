@@ -14,15 +14,16 @@ classifiers = [
     "Operating System :: OS Independent",
     "Framework :: FastAPI",
 ]
-[tool.poetry.urls]
-"Home Page" = "https://github.com/pysashapy/fasttower"
-"Documentation" = "https://pysashapy.github.io/fasttower"
-"Bug Tracker" = "https://github.com/pysashapy/fasttower/issues"
 
 packages = [
     { include = "fasttower" }
 ]
 include = ["README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.poetry.urls]
+"Home Page" = "https://github.com/pysashapy/fasttower"
+"Documentation" = "https://pysashapy.github.io/fasttower"
+"Bug Tracker" = "https://github.com/pysashapy/fasttower/issues"
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -36,7 +37,7 @@ fastapi-debug-toolbar = "^0.6.3"
 itsdangerous = "^2.2.0"
 
 tortoise-orm = { version = "^0.21.7", optional = true }
-aerich = { git = "https://github.com/pysashapy/taerich.git", tag = "0.0.1"}
+aerich = { git = "https://github.com/pysashapy/taerich.git", tag = "0.0.1" }
 fastapi-admin = { version = "^1.0.4", optional = true }
 
 [tool.poetry.extras]
