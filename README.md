@@ -28,13 +28,13 @@ FastTower app в asgi.py файле
 
 ### Установка
 
-```bash
+```console
 pip install fasttower[tortoise]
 ```
 
 Так же для управления миграциями требуется aerich, а именно его модернизированный форк
 
-```bash
+```console
 pip install git+https://github.com/pysashapy/taerich.git@0.0.1
 ```
 
@@ -42,19 +42,19 @@ pip install git+https://github.com/pysashapy/taerich.git@0.0.1
 
 Для начала требуется сгенерировать основное приложение
 
-```bash
+```console
 tower g p example
 ```
 
 После выполнения команды, вы можете обнаружить Django-like структуру проекта и сразу же запустить сервер
 
-```bash
+```console
 python manage.py run
 ```
 
 <details markdown="1">
 <summary>Или другим сервером...</summary>
-```bash
+```console
 uvicorn example.asgi:app 
 ```
 </details>
@@ -67,7 +67,7 @@ uvicorn example.asgi:app
 всегда можете использовать **python manage.py**
 <details markdown="1">
 <summary>Запуск с установленной env...</summary>
-```bash
+```console
 tower run
 ```
 </details>
@@ -200,7 +200,7 @@ router.include_router(APP_ROUTER, prefix='/app')
 
 Выполните команду которая создаст приложение
 
-```bash 
+```console 
 tower g a appexample
 ```
 
@@ -323,7 +323,7 @@ app.include_router(router)
 
 ### Commands
 Список текущих команд и их описания вы можете получить используя команду
-```bash
+```console
 tower --help
 ```
 
@@ -362,11 +362,11 @@ def hello_world():
 
 Вот и все её можно запустить!
 
-```bash
+```console
 tower appexample hello-world
 ```
 
-```bash
+```console
 Hello World!
 ```
 
