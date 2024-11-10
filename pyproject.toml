@@ -22,17 +22,21 @@ include = ["README.md", "LICENSE", "CHANGELOG.md"]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-typer = ">=0.12.5"
-fastapi = ">=0.115.0"
-scrypt = ">=0.8.24"
-Jinja2 = ">=3.1.4"
-uvicorn = ">=0.30.6"
-ipython = ">=8.27.0"
-tortoise-orm = ">=0.21.7"
-aerich = { git = "https://github.com/pysashapy/taerich.git", tag = "0.0.1" }
-fastapi-admin = ">=1.0.4"
+typer = "^0.12.5"
+fastapi = "^0.115.0"
+scrypt = "^0.8.24"
+Jinja2 = "^3.1.4"
+uvicorn = "^0.30.6"
+ipython = "^8.27.0"
 fastapi-debug-toolbar = "^0.6.3"
 itsdangerous = "^2.2.0"
+
+tortoise-orm = { version = "^0.21.7", optional = true }
+#aerich = { git = "https://github.com/pysashapy/taerich.git", tag = "0.0.1"}
+fastapi-admin = { version = "^1.0.4", optional = true }
+
+[tool.poetry.extras]
+tortoise = ["tortoise-orm", "fastapi-admin"]
 
 [tool.poetry.group.docs]
 optional = true
