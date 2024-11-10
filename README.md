@@ -104,7 +104,7 @@ app.include_router(router)
 <details markdown="1">
 <summary>Если не нужен tortoise...</summary>
 Уберите lifespan
-```Python
+```Python hl_lines="9  14"
 lifespan=lifespans([tortoise_lifespan])
 ```
 </details>
@@ -292,7 +292,7 @@ app.mount('/admin', admin_app)
 
 <details markdown="1">
 <summary>Полный код...</summary>
-```Python
+```Python hl_lines="9  14"
 """
 ASGI config for example project.
 
