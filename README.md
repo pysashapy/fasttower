@@ -1,7 +1,4 @@
-# FastTower
-<p align="center">
-  FastAPI
-</p>
+<h1 align="center">FastTower</h1>
 <p align="center">
     <em>FastTower — это молодой фреймворк основанный на FastAPI для быстрого создания серверных приложений с Django-like структурой.</em>
 </p>
@@ -319,6 +316,7 @@ app = FastTower(title="FastTower API Documentation", lifespan=lifespans([lifespa
 app.mount('/admin', admin_app)
 
 app.include_router(router)
+
 ```
 </details>
 
@@ -348,6 +346,7 @@ tower --help
 #### Создание новых команд
 
 Для этого создайте файл в папке **app**(appexample) commands.py
+
 ```python
 import typer
 
@@ -359,13 +358,17 @@ def hello_world():
     print("Hello World!")
 
 ```
+
 Вот и все её можно запустить!
+
 ```bash
 tower appexample hello-world
 ```
+
 ```bash
 Hello World!
 ```
+
 Более детально про [Typer](https://typer.tiangolo.com/)
 
 ## Продолжение следует...
