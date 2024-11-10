@@ -1,4 +1,3 @@
-import redis.asyncio as redis
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Depends
 from fastapi_admin.app import app
@@ -33,6 +32,7 @@ app.add_middleware(
 
 @asynccontextmanager
 async def lifespan_admin(app: FastAPI):
+    import redis.asyncio as redis
     from fasttower.conf import settings
     r = redis.from_url(
         settings.ADMIN_PANEL_REDIS,
