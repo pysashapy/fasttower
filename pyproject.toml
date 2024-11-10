@@ -36,7 +36,7 @@ aerich = { git = "https://github.com/pysashapy/taerich.git", tag = "0.0.1"}
 fastapi-admin = { version = "^1.0.4", optional = true }
 
 [tool.poetry.extras]
-tortoise = ["tortoise-orm", "fastapi-admin"]
+tortoise = ["tortoise-orm", "aerich", "fastapi-admin"]
 
 [tool.poetry.group.docs]
 optional = true
