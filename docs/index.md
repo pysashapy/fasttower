@@ -172,7 +172,14 @@ ADMIN_PANEL_REDIS = 'redis://localhost:6379/0'
 После создания нового приложения обязательно добавьте его в **INSTALLED_APPS**! Иначе у FastTower не будет доступа к
 моделям и командам
 приложения
-
+```python
+INSTALLED_APPS = [
+    'fasttower.apps.taerich',
+    'fasttower.auth',
+    ...
+    'appexample',
+]
+```
 ##### MIDDLEWARE
 
 Поддерживаются все starlette совместимые middleware!

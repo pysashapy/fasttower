@@ -61,7 +61,7 @@ uvicorn example.asgi:app
 
 ### Обзор
 
-Главная роль manage.py файла установить env **FASTTOWER_SETTINGS_MODULE** указывающею путь до вашего settings.py 
+Главная роль manage.py файла установить env **FASTTOWER_SETTINGS_MODULE** указывающею путь до вашего settings.py
 файла(**example.settings**). Вы можете
 установить ее сами и после этого использовать команду **tower**. Далее будет использоваться команда **tower**, но вы
 всегда можете использовать **python manage.py**
@@ -169,6 +169,15 @@ ADMIN_PANEL_REDIS = 'redis://localhost:6379/0'
 После создания нового приложения обязательно добавьте его в **INSTALLED_APPS**! Иначе у FastTower не будет доступа к
 моделям и командам
 приложения
+
+```python
+INSTALLED_APPS = [
+    'fasttower.apps.taerich',
+    'fasttower.auth',
+    ...
+    'appexample',
+]
+```
 
 ##### MIDDLEWARE
 
