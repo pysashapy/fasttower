@@ -1,6 +1,5 @@
-<h1 align="center">FastTower</h1>
 <p align="center">
-    <em>FastTower — это молодой фреймворк основанный на FastAPI для быстрого создания серверных приложений с Django-like структурой.</em>
+  <a href="https://pysashapy.github.io/fasttower/"><img src="docs/img/logo.png" alt="FastTower"  width="256"></a>
 </p>
 <p align="center">
 <a href="https://pypi.org/project/fasttower" target="_blank">
@@ -321,7 +320,9 @@ app.include_router(router)
 </details>
 
 ### Commands
+
 Список текущих команд и их описания вы можете получить используя команду
+
 ```console
 tower --help
 ```
