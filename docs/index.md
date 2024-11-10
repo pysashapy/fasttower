@@ -11,14 +11,14 @@
 </a>
 </p>
 
-# Features
+## Features
 
 - Легкая настройка
 - Высокая производительность
 - Простота в использовании
 - Админ панель
 
-# Быстрый старт
+## Быстрый старт
 
 В настоящее время официально поддерживаться только tortoise orm и админ панель для нее, но вы можете легко добавить свою
 поддержку бд модернизируя
@@ -29,7 +29,7 @@ FastTower app в asgi.py файле
 на [github](https://github.com/pysashapy/fasttower/tree/main/examples/start)
 </details>
 
-## Установка
+### Установка
 
 ```bash
 pip install fasttower[tortoise]
@@ -41,7 +41,7 @@ pip install fasttower[tortoise]
 pip install git+https://github.com/pysashapy/taerich.git@0.0.1
 ```
 
-## Создание проекта
+### Создание проекта
 
 Для начала требуется сгенерировать основное приложение
 
@@ -62,7 +62,7 @@ uvicorn example.asgi:app
 ```
 </details>
 
-## Обзор
+### Обзор
 
 Главная роль manage.py файла установить env **FASTTOWER_SETTINGS_MODULE** указывающею путь до вашего settings.py файла(*
 *example.settings**). Вы можете
@@ -75,9 +75,9 @@ tower run
 ```
 </details>
 
-## Структура проекта
+### Структура проекта
 
-### asgi.py
+#### asgi.py
 
 FastTower - это полностью совместимый FastAPI class.
 
@@ -112,7 +112,7 @@ lifespan=lifespans([tortoise_lifespan])
 ```
 </details>
 
-### settings.py
+#### settings.py
 
 Вправду очень похоже на Django?
 
@@ -167,13 +167,13 @@ DATABASES = {
 ADMIN_PANEL_REDIS = 'redis://localhost:6379/0'
 ```
 
-#### INSTALLED_APPS
+##### INSTALLED_APPS
 
 После создания нового приложения обязательно добавьте его в **INSTALLED_APPS**! Иначе у FastTower не будет доступа к
 моделям и командам
 приложения
 
-#### MIDDLEWARE
+##### MIDDLEWARE
 
 Поддерживаются все starlette совместимые middleware!
 
@@ -188,7 +188,7 @@ MIDDLEWARE = [
 ]
 ```
 
-### routers.py
+#### routers.py
 
 Является отправной точкой для всех будущих APPs
 
@@ -199,7 +199,7 @@ router = APIRouter(prefix="/api/v1")
 router.include_router(APP_ROUTER, prefix='/app')
 ```
 
-## Создание нового приложения
+### Создание нового приложения
 
 Выполните команду которая создаст приложение
 
@@ -220,7 +220,7 @@ INSTALLED_APPS = [
 
 Каждое приложение содержит **config.py, models.py, admin.py, serializers.py, routers.py и views.py**
 
-### Models
+#### Models
 
 Основано на [tortoise](https://tortoise.github.io/), так что вы можете просто импортировать ее и работать с ней!
 
@@ -232,7 +232,7 @@ class FastTowerModel(models.Model):
     say = models.CharField(max_length=100, default="Hello World!")
 ```
 
-### Admin
+#### Admin
 
 Тут содержится описание моделей для [админ панели](https://fastapi-admin-docs.long2ice.io/)
 
@@ -251,7 +251,7 @@ class AppexampleTabMenu(Dropdown):
     title = "Appexamples"
 ```
 
-### Views
+#### Views
 
 Тут все аналогично FastAPI, скоро появятся **mixins** как в Django для простых **CRUD** задач!
 
@@ -375,4 +375,4 @@ Hello World!
 
 Более детально про [Typer](https://typer.tiangolo.com/)
 
-# Продолжение следует...
+## Продолжение следует...
