@@ -16,11 +16,7 @@ Django-like
 В настоящее время официально поддерживаться только tortoise orm и админ панель для нее, но вы можете легко добавить свою
 поддержку бд модернизируя
 FastTower app в asgi.py файле
-
-<details markdown="1">
-<summary>Полный пример...</summary>
-на [github](https://github.com/pysashapy/fasttower/tree/main/examples/start)
-</details>
+[Полный пример](https://github.com/pysashapy/fasttower/tree/main/examples/start)
 
 ### Установка
 
@@ -313,7 +309,6 @@ app = FastTower(title="FastTower API Documentation", lifespan=lifespans([lifespa
 app.mount('/admin', admin_app)
 
 app.include_router(router)
-
 ```
 </details>
 
