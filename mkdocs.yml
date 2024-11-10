@@ -1,5 +1,5 @@
 site_name: FastTower
-site_description: FastTower framework, high performance, easy to learn, fast to code, ready for production
+site_description: FastTower framework, Django-like framework based on FastAPI
 repo_name: pysashapy/fasttower
 repo_url: https://github.com/pysashapy/fasttower
 theme:

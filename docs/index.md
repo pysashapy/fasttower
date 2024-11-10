@@ -1,8 +1,6 @@
 # FastTower
 
-FastTower — это молодая и легкая библиотека основанная на FastAPI для быстрого создания серверных приложений на Python с
-Django-like
-структурой.
+FastTower — это молодой фреймворк основанный на FastAPI для быстрого создания серверных приложений с Django-like структурой.
 
 ## Features
 
@@ -343,6 +341,7 @@ tower --help
 #### Создание новых команд
 
 Для этого создайте файл в папке **app**(appexample) commands.py
+
 ```python
 import typer
 
@@ -354,13 +353,17 @@ def hello_world():
     print("Hello World!")
 
 ```
+
 Вот и все её можно запустить!
+
 ```bash
 tower appexample hello-world
 ```
+
 ```bash
 Hello World!
 ```
+
 Более детально про [Typer](https://typer.tiangolo.com/)
 
 ## Продолжение следует...
