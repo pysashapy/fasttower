@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="FastTower framework, high performance, easy to learn, fast to code, ready for production">
+        <meta name="description" content="FastTower framework, Django-like framework based on FastAPI">
       
       
       
@@ -798,9 +798,7 @@
 
 
 <h1 id="fasttower">FastTower<a class="headerlink" href="#fasttower" title="Permanent link">&para;</a></h1>
-<p>FastTower — это молодая и легкая библиотека основанная на FastAPI для быстрого создания серверных приложений на Python с
-Django-like
-структурой.</p>
+<p>FastTower — это молодой фреймворк основанный на FastAPI для быстрого создания серверных приложений с Django-like структурой.</p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Легкая настройка</li>
@@ -1057,7 +1055,7 @@ FastTower app в asgi.py файле</p>
 </span><span id="__span-20-14">╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 </span></code></pre></div>
 <h4 id="_7">Создание новых команд<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>Для этого создайте файл в папке <strong>app</strong>(appexample) commands.py
+<p>Для этого создайте файл в папке <strong>app</strong>(appexample) commands.py</p>
 <div class="highlight"><pre><span></span><code><span id="__span-21-1"><span class="kn">import</span> <span class="nn">typer</span>
 </span><span id="__span-21-2">
 </span><span id="__span-21-3"><span class="n">example_commands</span> <span class="o">=</span> <span class="n">typer</span><span class="o">.</span><span class="n">Typer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;appexample&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Example commands&quot;</span><span class="p">)</span>
@@ -1067,12 +1065,12 @@ FastTower app в asgi.py файле</p>
 </span><span id="__span-21-7"><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
 </span><span id="__span-21-8">    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-Вот и все её можно запустить!
+<p>Вот и все её можно запустить!</p>
 <div class="highlight"><pre><span></span><code><span id="__span-22-1">tower<span class="w"> </span>appexample<span class="w"> </span>hello-world
 </span></code></pre></div>
 <div class="highlight"><pre><span></span><code><span id="__span-23-1">Hello<span class="w"> </span>World!
 </span></code></pre></div>
-Более детально про <a href="https://typer.tiangolo.com/">Typer</a></p>
+<p>Более детально про <a href="https://typer.tiangolo.com/">Typer</a></p>
 <h2 id="_8">Продолжение следует...<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 
 
