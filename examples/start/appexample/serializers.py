@@ -1,0 +1,1 @@
+from fasttower.serializers import ModelSerializer

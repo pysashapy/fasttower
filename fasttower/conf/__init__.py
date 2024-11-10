@@ -1,4 +1,5 @@
 import importlib
+import logging
 import os
 import sys
 from pathlib import Path
@@ -73,7 +74,11 @@ class Settings(TypedSettings):
         except Exception as e:
             raise ImportError(
                 f"Settings cannot be loaded"
-            ) from e
+            )
 
 
-settings = Settings()
+try:
+    settings = Settings()
+except (ImportError, EnvironmentError):
+    logging.exception("Settings cannot be loaded")
+    settings = object

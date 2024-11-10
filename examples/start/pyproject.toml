@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "fasttower-tests"
+version = "0.1.0"
+description = ""
+authors = ["sasha <sasha.2000ibr@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fasttower = {extras = ["tortoise"], version = "^0.1.5"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

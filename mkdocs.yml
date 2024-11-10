@@ -80,7 +80,7 @@ plugins:
           show_symbol_type_toc: true
 
 nav:
-  - Быстрый старт: index.md
+  - FastTower: index.md
 
 markdown_extensions:
   abbr:
