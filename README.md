@@ -23,6 +23,7 @@
 В настоящее время официально поддерживаться только tortoise orm и админ панель для нее, но вы можете легко добавить свою
 поддержку бд модернизируя
 FastTower app в asgi.py файле
+
 [Полный пример](https://github.com/pysashapy/fasttower/tree/main/examples/start)
 
 ### Установка
