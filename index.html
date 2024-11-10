@@ -389,6 +389,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура проекта
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Структура проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asgipy" class="md-nav__link">
+    <span class="md-ellipsis">
+      asgi.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -474,6 +498,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура проекта
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Структура проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asgipy" class="md-nav__link">
+    <span class="md-ellipsis">
+      asgi.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -498,40 +546,69 @@
 
 
 <h1 id="fasttower">FastTower<a class="headerlink" href="#fasttower" title="Permanent link">&para;</a></h1>
-<p>FastTower — это мощная и легкая библиотека для быстрого создания серверных приложений на Python с Django-like структурой.</p>
+<p>FastTower — это мощная и легкая библиотека для быстрого создания серверных приложений на Python с Django-like
+структурой.</p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Легкая настройка</li>
 <li>Высокая производительность</li>
 <li>Простота в использовании</li>
+<li>Админ панель</li>
 </ul>
 <h2 id="_1">Быстрый старт<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>В настоящее время поддерживаться только tortoise orm, но вы можете легко добавить свою поддержку бд модернизируя FastTower app в asgi.py.</p>
+<p>В настоящее время официально поддерживаться только tortoise orm и админ панель для нее, но вы можете легко добавить свою поддержку бд модернизируя
+FastTower app в asgi.py файле</p>
 <h3 id="_2">Установка<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code><span id="__span-0-1">pip<span class="w"> </span>install<span class="w"> </span>fasttower<span class="o">[</span>tortoise<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1">pip<span class="w"> </span>install<span class="w"> </span>fasttower<span class="o">[</span>tortoise<span class="o">]</span>
 </span></code></pre></div>
-Так же для управления миграция требуется aerich, а именно его модернизированный форк.
+<p>Так же для управления миграциями требуется aerich, а именно его модернизированный форк</p>
 <div class="highlight"><pre><span></span><code><span id="__span-1-1">pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/pysashapy/taerich.git@0.0.1
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h3 id="_3">Создание проекта<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>Для начала требуется сгенерировать основное приложение
+<p>Для начала требуется сгенерировать основное приложение</p>
 <div class="highlight"><pre><span></span><code><span id="__span-2-1">tower<span class="w"> </span>g<span class="w"> </span>p<span class="w"> </span>example
 </span></code></pre></div>
-После выполнения команды, вы можете обнаружить Django-like структуру проекта и сразу же запустить сервер
+<p>После выполнения команды, вы можете обнаружить Django-like структуру проекта и сразу же запустить сервер</p>
 <div class="highlight"><pre><span></span><code><span id="__span-3-1">python<span class="w"> </span>manage.py<span class="w"> </span>run
-</span></code></pre></div></p>
+</span></code></pre></div>
 <details>
 <summary>Или другим сервером...</summary>
 <div class="highlight"><pre><span></span><code><span id="__span-4-1">uvicorn<span class="w"> </span>example.asgi:app<span class="w"> </span>
 </span></code></pre></div>
 </details>
 <h3 id="_4">Обзор<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>Главная роль manage.py файла установить env <strong>FASTTOWER_SETTINGS_MODULE</strong> указывающею путь до вашего settings. Вы можете установить ее сами и после этого использовать команду <strong>tower</strong></p>
+<p>Главная роль manage.py файла установить env <strong>FASTTOWER_SETTINGS_MODULE</strong> указывающею путь до вашего settings.py файла(<strong>example.settings</strong>). Вы можете
+установить ее сами и после этого использовать команду <strong>tower</strong>. Далее будет использоваться команда <strong>tower</strong>, но вы
+всегда можете использовать <strong>python manage.py</strong></p>
 <details>
 <summary>Запуск с установленной env...</summary>
 <div class="highlight"><pre><span></span><code><span id="__span-5-1">tower<span class="w"> </span>run
 </span></code></pre></div>
 </details>
+<h3 id="_5">Структура проекта<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="asgipy">asgi.py<a class="headerlink" href="#asgipy" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-6-2"><span class="sd">ASGI config for test project.</span>
+</span><span id="__span-6-3">
+</span><span id="__span-6-4"><span class="sd">It exposes the ASGI callable as a module-level variable named ``application``.</span>
+</span><span id="__span-6-5"><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-6-6">
+</span><span id="__span-6-7"><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-6-8">
+</span><span id="__span-6-9"><span class="kn">from</span> <span class="nn">fasttower.utils</span> <span class="kn">import</span> <span class="n">setup</span>
+</span><span id="__span-6-10">
+</span><span id="__span-6-11"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;FASTTOWER_SETTINGS_MODULE&quot;</span><span class="p">,</span> <span class="s2">&quot;test.settings&quot;</span><span class="p">)</span>
+</span><span id="__span-6-12"><span class="n">setup</span><span class="p">()</span>
+</span><span id="__span-6-13">
+</span><span id="__span-6-14"><span class="kn">from</span> <span class="nn">fasttower.server</span> <span class="kn">import</span> <span class="n">FastTower</span>
+</span><span id="__span-6-15"><span class="kn">from</span> <span class="nn">fasttower.utils</span> <span class="kn">import</span> <span class="n">lifespans</span><span class="p">,</span> <span class="n">tortoise_lifespan</span>
+</span><span id="__span-6-16">
+</span><span id="__span-6-17"><span class="kn">from</span> <span class="nn">test.routers</span> <span class="kn">import</span> <span class="n">router</span>
+</span><span id="__span-6-18">
+</span><span id="__span-6-19"><span class="n">app</span> <span class="o">=</span> <span class="n">FastTower</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;FastTower API Documentation&quot;</span><span class="p">,</span> <span class="n">lifespan</span><span class="o">=</span><span class="n">lifespans</span><span class="p">([</span><span class="n">tortoise_lifespan</span><span class="p">]))</span>
+</span><span id="__span-6-20">
+</span><span id="__span-6-21"><span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">router</span><span class="p">)</span>
+</span></code></pre></div>
 
 
 
