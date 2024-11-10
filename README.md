@@ -104,7 +104,7 @@ app.include_router(router)
 <details markdown="1">
 <summary>Если не нужен tortoise...</summary>
 Уберите lifespan
-```Python hl_lines="9  14"
+```Python
 lifespan=lifespans([tortoise_lifespan])
 ```
 </details>
@@ -177,7 +177,7 @@ INSTALLED_APPS = [
     ...
     'appexample',
 ]
-```
+```[4-14.url](..%2F..%2FAppData%2FLocal%2FTemp%2F4-14.url)
 
 ##### MIDDLEWARE
 
@@ -301,7 +301,7 @@ app.mount('/admin', admin_app)
 
 <details markdown="1">
 <summary>Полный код...</summary>
-```Python hl_lines="9  14"
+```Python
 """
 ASGI config for example project.
 
