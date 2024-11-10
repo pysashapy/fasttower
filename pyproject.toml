@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fasttower"
-version = "0.1.6a3"
+version = "0.1.6a4"
 description = "A Django-like framework built on FastAPI"
 authors = ["Alexander Ibragmov <sasha.2000ibr@gmail.com>"]
 license = "MIT"
@@ -21,12 +21,12 @@ packages = [
 include = ["README.md", "LICENSE", "CHANGELOG.md"]
 
 [tool.poetry.urls]
-"Home Page" = "https://github.com/pysashapy/fasttower"
+"Homepage" = "https://github.com/pysashapy/fasttower"
 "Documentation" = "https://pysashapy.github.io/fasttower"
 "Bug Tracker" = "https://github.com/pysashapy/fasttower/issues"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 typer = "^0.12.5"
 fastapi = "^0.115.0"
 scrypt = "^0.8.24"
