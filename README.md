@@ -61,8 +61,8 @@ uvicorn example.asgi:app
 
 ### Обзор
 
-Главная роль manage.py файла установить env **FASTTOWER_SETTINGS_MODULE** указывающею путь до вашего settings.py файла(*
-*example.settings**). Вы можете
+Главная роль manage.py файла установить env **FASTTOWER_SETTINGS_MODULE** указывающею путь до вашего settings.py 
+файла(**example.settings**). Вы можете
 установить ее сами и после этого использовать команду **tower**. Далее будет использоваться команда **tower**, но вы
 всегда можете использовать **python manage.py**
 <details markdown="1">
