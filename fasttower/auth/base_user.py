@@ -42,4 +42,4 @@ class AbstractBaseUser(models.Model):
     def password_changed(self, password: str):
         if not check_password(password, self.password_hash):
             raise ValidationError('Password does not match')
-        self.set_password(password)
+        self.password = password

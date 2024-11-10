@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fasttower"
-version = "0.1.4a"
+version = "0.1.5"
 description = "A Django-like framework built on FastAPI"
 authors = ["Alexander Ibragmov <sasha.2000ibr@gmail.com>"]
 license = "MIT"
@@ -28,9 +28,11 @@ scrypt = ">=0.8.24"
 Jinja2 = ">=3.1.4"
 uvicorn = ">=0.30.6"
 ipython = ">=8.27.0"
-tortoise-orm = ">=0.21.6"
-aerich = ">=0.7.2"
+tortoise-orm = ">=0.21.7"
+aerich = { git = "https://github.com/pysashapy/taerich.git", tag = "0.0.1" }
 fastapi-admin = ">=1.0.4"
+fastapi-debug-toolbar = "^0.6.3"
+itsdangerous = "^2.2.0"
 
 [tool.poetry.group.docs]
 optional = true

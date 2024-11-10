@@ -8,13 +8,21 @@ SECRET_KEY = "{{ secret_key }}"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = ["*"]
+
 INSTALLED_APPS = [
     'fasttower.apps.taerich',
     'fasttower.auth',
 ]
 
-USER_MODEL = 'fasttower.auth.models:BaseUser'
+MIDDLEWARE = [
+    ["fastapi.middleware.trustedhost:TrustedHostMiddleware", {"allowed_hosts": ALLOWED_HOSTS}],
+    ["fastapi.middleware.gzip:GZipMiddleware", {"minimum_size": 1000, "compresslevel": 5}],
+]
+if DEBUG:
+    MIDDLEWARE += ["debug_toolbar.middleware:DebugToolbarMiddleware"],
 
+USER_MODEL = 'fasttower.auth.models:BaseUser'
 
 ASGI = "{{ project_name }}.asgi:app"
 

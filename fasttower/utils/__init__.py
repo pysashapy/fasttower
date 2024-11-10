@@ -1,10 +1,10 @@
 from contextlib import asynccontextmanager, AsyncExitStack
 from importlib import import_module
-from typing import Type, List, Callable
+from typing import Type, List, Callable, AsyncGenerator
 
 from fastapi import FastAPI
 from tortoise import timezone
-from tortoise.contrib.fastapi import register_tortoise
+from tortoise.contrib.fastapi import RegisterTortoise
 
 
 def get_module(path: str):
@@ -44,21 +44,23 @@ def setup():
             pass
 
 
-def register_orm(app: FastAPI, **kwargs):
+@asynccontextmanager
+async def tortoise_lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     from fasttower.conf import settings
-    return register_tortoise(
-        app,
-        config=settings.DATABASES,
-        generate_schemas=True,
-        **kwargs
-    )
+    async with RegisterTortoise(
+            app,
+            config=settings.DATABASES,
+            generate_schemas=True,
+            add_exception_handlers=True,
+    ):
+        yield
 
 
 __all__ = [
     'timezone',
     'lifespans',
     'get_module',
-    'register_orm',
+    'tortoise_lifespan',
     'get_user_model',
     'setup',
 ]
