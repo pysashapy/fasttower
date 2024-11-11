@@ -2,6 +2,9 @@
   <a href="https://pysashapy.github.io/fasttower/"><img src="docs/img/logo.png" alt="FastTower"  width="256"></a>
 </p>
 <p align="center">
+    <em>FastTower — это молодой фреймворк основанный на FastAPI для быстрого создания серверных приложений с Django-like структурой.</em>
+</p>
+<p align="center">
 <a href="https://pypi.org/project/fasttower" target="_blank">
     <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/fasttower">
 </a>
