@@ -1,9 +1,10 @@
 # pylint: disable=E0611,E0401
 from contextlib import asynccontextmanager
+from typing import AsyncGenerator
+
 from fastapi import FastAPI
 from tortoise import Tortoise
 from tortoise.contrib.fastapi import RegisterTortoise
-from typing import AsyncGenerator
 
 from fasttower.conf import settings
 
@@ -13,6 +14,12 @@ async def initialize_tortoise():
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
-    async with RegisterTortoise(app, config=settings.DATABASES, generate_schemas=True):
+async def tortoise_lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+    from fasttower.conf import settings
+    async with RegisterTortoise(
+            app,
+            config=settings.DATABASES,
+            generate_schemas=True,
+            add_exception_handlers=True,
+    ):
         yield

@@ -3,8 +3,22 @@ import logging
 import os
 import sys
 from pathlib import Path
+from typing import TypedDict, Optional
+
 from fasttower.conf import global_settings
+
 FASTTOWER_SETTINGS_MODULE = "FASTTOWER_SETTINGS_MODULE"
+
+
+class EmailTypedDict(TypedDict):
+    backend: str
+    hostname: str
+    port: int
+    username: str
+    password: str
+    user_tls: bool
+    start_tls: bool
+    from_: Optional[str]
 
 
 class SettingsTyped:
@@ -21,6 +35,8 @@ class SettingsTyped:
     USE_TZ: bool
     DATABASES: dict
     COMMANDS: list
+    CACHE: Optional[dict]
+    SMTP: Optional[dict[str, EmailTypedDict]]
 
 
 class Settings(SettingsTyped):

@@ -1,26 +1,28 @@
 from contextlib import asynccontextmanager, AsyncExitStack
 from importlib import import_module
-from typing import Type, List, Callable, AsyncGenerator
+from typing import List, Callable
 
 from fastapi import FastAPI
 from tortoise import timezone
-from tortoise.contrib.fastapi import RegisterTortoise
 
 
-def get_module(path: str):
+def get_class(path: str, seps=':.'):
     try:
-        path, module = path.rsplit(':', maxsplit=1)
-        module = getattr(import_module(path), module)
-    except ModuleNotFoundError as e:
-        raise e
-    except ValueError:
-        raise ImportError('Module not be imported')
-    return module
+        for sep in seps:
+            path_ = path.rsplit(sep, maxsplit=1)
+            if len(path_) == 2:
+                path, class_ = path_
+                break
+        else:
+            raise ValueError
+        return getattr(import_module(path), class_)
+    except (ModuleNotFoundError, ValueError):
+        raise ImportError(f'class <{path}> not be imported')
 
 
-def get_user_model() -> Type['AbstractUser']:
+def get_user_model():
     from fasttower.conf import settings
-    return get_module(settings.USER_MODEL)
+    return get_class(settings.USER_MODEL)
 
 
 def lifespans(lifespans_: List[Callable]):
@@ -44,23 +46,10 @@ def setup():
             pass
 
 
-@asynccontextmanager
-async def tortoise_lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
-    from fasttower.conf import settings
-    async with RegisterTortoise(
-            app,
-            config=settings.DATABASES,
-            generate_schemas=True,
-            add_exception_handlers=True,
-    ):
-        yield
-
-
 __all__ = [
     'timezone',
     'lifespans',
-    'get_module',
-    'tortoise_lifespan',
     'get_user_model',
     'setup',
+    'get_class'
 ]

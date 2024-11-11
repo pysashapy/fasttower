@@ -16,13 +16,13 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    ["fastapi.middleware.trustedhost:TrustedHostMiddleware", {"allowed_hosts": ALLOWED_HOSTS}],
-    ["fastapi.middleware.gzip:GZipMiddleware", {"minimum_size": 1000, "compresslevel": 5}],
+    ["fastapi.middleware.trustedhost.TrustedHostMiddleware", {"allowed_hosts": ALLOWED_HOSTS}],
+    ["fastapi.middleware.gzip.GZipMiddleware", {"minimum_size": 1000, "compresslevel": 5}],
 ]
 if DEBUG:
-    MIDDLEWARE += ["debug_toolbar.middleware:DebugToolbarMiddleware"],
+    MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"],
 
-USER_MODEL = 'fasttower.auth.models:BaseUser'
+USER_MODEL = 'fasttower.auth.models.BaseUser'
 
 ASGI = "{{ project_name }}.asgi:app"
 
@@ -40,6 +40,12 @@ DATABASES = {
             }
         },
     },
+}
+
+CACHE = {
+    "default": {
+        "BACKEND": "fasttower.cache.InMemoryBackend",
+    }
 }
 
 #https://github.com/fastapi-admin/fastapi-admin

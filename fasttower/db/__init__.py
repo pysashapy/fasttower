@@ -1,13 +1,13 @@
 from tortoise.exceptions import DoesNotExist
 
 from fasttower.db import models
-from fasttower.db.lifespan import lifespan, initialize_tortoise
+from fasttower.db.lifespan import initialize_tortoise, tortoise_lifespan
 from fasttower.exceptions import NotFoundException
 
 __all__ = [
     'initialize_tortoise',
+    "tortoise_lifespan",
     'models',
-    "lifespan",
     "get_object_or_404",
 ]
 

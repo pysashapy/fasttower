@@ -12,10 +12,13 @@ os.environ.setdefault("FASTTOWER_SETTINGS_MODULE", "{{project_name}}.settings")
 setup()
 
 from fasttower.server import FastTower
-from fasttower.utils import lifespans, tortoise_lifespan
+
+from fasttower.utils import lifespans
+from fasttower.cache.lifespan import cache_lifespan
+from fasttower.db.lifespan import tortoise_lifespan
 
 from {{project_name}}.routers import router
 
-app = FastTower(title="FastTower API Documentation", lifespan=lifespans([tortoise_lifespan]))
+app = FastTower(title="FastTower API Documentation", lifespan=lifespans([tortoise_lifespan, cache_lifespan]))
 
 app.include_router(router)

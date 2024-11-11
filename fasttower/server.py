@@ -1,10 +1,11 @@
 from typing import Annotated, Optional, Sequence, Any, TypeVar
 
 from fastapi import FastAPI
-from fasttower.conf import settings
-from fasttower.utils import get_module
 from starlette.middleware import Middleware
 from typing_extensions import Doc
+
+from fasttower.conf import settings
+from fasttower.utils import get_class
 
 AppType = TypeVar("AppType", bound="FastTower")
 
@@ -65,4 +66,4 @@ class FastTower(FastAPI):
         super().__init__(debug=debug, **extra)
 
         for middleware_ in middleware:
-            self.add_middleware(get_module(middleware_[0]), **middleware_[1] if len(middleware_) > 1 else {})
+            self.add_middleware(get_class(middleware_[0]), **middleware_[1] if len(middleware_) > 1 else {})

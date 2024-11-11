@@ -43,5 +43,5 @@ DATABASES = {
     },
 }
 
-#https://github.com/fastapi-admin/fastapi-admin
+# https://github.com/fastapi-admin/fastapi-admin
 ADMIN_PANEL_REDIS = 'redis://localhost:6379/0'
