@@ -28,7 +28,7 @@ FastTower app в asgi.py файле
 
 <details markdown="1">
 <summary>Полный пример...</summary>
-на [github](https://github.com/pysashapy/fasttower/tree/main/examples/start)
+на [github](https://github.com/pysashapy/fasttower/tree/main/examples/maximun_example)
 </details>
 
 ### Установка

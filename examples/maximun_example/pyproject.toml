@@ -7,7 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-fasttower = {extras = ["tortoise"], version = "^0.1.5"}
+fasttower = {git = "https://github.com/pysashapy/fasttower.git", extras = ["tortoise"]}
+pydantic = {extras = ["email"], version = "^2.9.2"}
 
 
 [build-system]
