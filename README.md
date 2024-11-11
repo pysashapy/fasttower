@@ -46,13 +46,13 @@ pip install git+https://github.com/pysashapy/taerich.git@0.0.1
 
 Для начала требуется сгенерировать основное приложение
 
-```bash
+```console
 tower g p example
 ```
 
 После выполнения команды, вы можете обнаружить Django-like структуру проекта и сразу же запустить сервер!
 
-```bash
+```console
 python manage.py run
 ```
 
