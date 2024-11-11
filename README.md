@@ -15,7 +15,7 @@
 
 [Документация](https://pysashapy.github.io/fasttower/)
 
-##` Features
+## Features
 
 - Легкая настройка
 - Высокая производительность
