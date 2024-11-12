@@ -1,6 +1,6 @@
 site_name: FastTower
 site_description: FastTower framework, Django-like framework based on FastAPI
-repo_name: pysashapy/fasttower
+repo_name: FastTower
 repo_url: https://github.com/pysashapy/fasttower
 theme:
   name: material
@@ -51,7 +51,6 @@ theme:
 
   icon:
     repo: fontawesome/brands/github-alt
-  language: ru
 
 plugins:
   # Material for MkDocs
@@ -80,7 +79,20 @@ plugins:
           show_symbol_type_toc: true
 
 nav:
-  - FastTower: index.md
+  - Home: index.md
+  - Quick Start:
+      - О проекте: quick/index.md
+      - Project Setup: quick/project-setup.md
+      - App Setup: quick/app-setup.md
+      - Overview: quick/overview.md
+  - Advanced Usage:
+      - Installation: usage/install.md
+      - Admin Panel: usage/admin-panel.md
+      - Caching: usage/cache.md
+      - Commands: usage/commands.md
+      - Email: usage/email.md
+      - Models: usage/model.md
+      - Routers: usage/routers.md
 
 markdown_extensions:
   abbr:
@@ -99,6 +111,8 @@ markdown_extensions:
   pymdownx.inlinehilite:
   pymdownx.keys:
   pymdownx.mark:
+  pymdownx.tabbed:
+    alternate_style: true
   pymdownx.superfences:
     custom_fences:
       - name: mermaid
@@ -124,9 +138,12 @@ markdown_extensions:
   pymdownx.blocks.tab:
     alternate_style: True
 
+  admonition:
+  pymdownx.details:
   # Other extensions
   mdx_include:
   markdown_include_variants:
+
 
 extra:
   social:

@@ -61,9 +61,7 @@ class FastTower(FastAPI):
                  ], ):
         if debug is None:
             debug = settings.DEBUG or False
-        if middleware is None:
-            middleware = settings.MIDDLEWARE
         super().__init__(debug=debug, **extra)
-
-        for middleware_ in middleware:
-            self.add_middleware(get_class(middleware_[0]), **middleware_[1] if len(middleware_) > 1 else {})
+        if middleware is None:
+            for middleware_ in settings.MIDDLEWARE:
+                self.add_middleware(get_class(middleware_[0]), **middleware_[1] if len(middleware_) > 1 else {})

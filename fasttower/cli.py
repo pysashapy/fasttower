@@ -17,14 +17,14 @@ for typer_app in getattr(settings, 'COMMANDS', []) + [
 
 @app.command()
 def run():
-    """Запуск FastTower сервера"""
+    """Start the FastTower server"""
     import uvicorn
     uvicorn.run(settings.ASGI, host='127.0.0.1', port=8000, reload=True)
 
 
 @app.command()
 def shell():
-    """Запускает интерактивную оболочку."""
+    """Launch an interactive shell."""
     import IPython
     from fasttower.utils import setup
     setup()
@@ -52,7 +52,7 @@ async def create_superuser(username, password):
         await Tortoise.close_connections()
 
 
-@app.command("superuser", help="Create a superuser.")
+@app.command("superuser", help="Create a superuser.[tortoise]")
 def addsuperuser():
     username = typer.prompt("Enter a username")
     password = typer.prompt("Enter a password", hide_input=True)
