@@ -1,0 +1,1269 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="FastTower framework, Django-like framework based on FastAPI">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Getting started - FastTower</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="FastTower" class="md-header__button md-logo" aria-label="FastTower" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FastTower
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="amber"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pysashapy/fasttower" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FastTower
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../quick/" class="md-tabs__link">
+          
+  
+    
+  
+  Quick Start
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../usage/install/" class="md-tabs__link">
+          
+  
+    
+  
+  Advanced Usage
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="FastTower" class="md-nav__button md-logo" aria-label="FastTower" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    FastTower
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pysashapy/fasttower" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+  </div>
+  <div class="md-source__repository">
+    FastTower
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../quick/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Quick Start
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick/project-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick/app-setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    App Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced Usage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/admin-panel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Admin Panel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/cache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caching
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/email/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Email
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/routers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Routers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Быстрый старт
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Быстрый старт">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Установка
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создание проекта
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Обзор
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура проекта
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Структура проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asgipy" class="md-nav__link">
+    <span class="md-ellipsis">
+      asgi.py
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settingspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      settings.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="settings.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installed_apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      INSTALLED_APPS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#middleware" class="md-nav__link">
+    <span class="md-ellipsis">
+      MIDDLEWARE
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routerspy" class="md-nav__link">
+    <span class="md-ellipsis">
+      routers.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создание нового приложения
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Создание нового приложения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Views
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#admin-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin panel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создание новых команд
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Getting started</h1>
+
+<h2 id="_1">Быстрый старт<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>В настоящее время официально поддерживаться только tortoise orm и админ панель для нее, но вы можете легко добавить свою
+поддержку бд модернизируя
+FastTower app в asgi.py файле</p>
+<details>
+<summary>Полный пример...</summary>
+<p>на <a href="https://github.com/pysashapy/fasttower/tree/main/examples/maximun_example">github</a></p>
+</details>
+<h3 id="_2">Установка<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span id="__span-0-1">pip<span class="w"> </span>install<span class="w"> </span>fasttower<span class="o">[</span>tortoise<span class="o">]</span>
+</span></code></pre></div>
+<p>Так же для управления миграциями требуется aerich, а именно его модернизированный форк</p>
+<div class="highlight"><pre><span></span><code><span id="__span-1-1">pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/pysashapy/taerich.git@0.0.1
+</span></code></pre></div>
+<h3 id="_3">Создание проекта<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Для начала требуется сгенерировать основное приложение</p>
+<div class="highlight"><pre><span></span><code><span id="__span-2-1">tower<span class="w"> </span>g<span class="w"> </span>p<span class="w"> </span>example
+</span></code></pre></div>
+<p>После выполнения команды, вы можете обнаружить Django-like структуру проекта и сразу же запустить сервер</p>
+<div class="highlight"><pre><span></span><code><span id="__span-3-1">python<span class="w"> </span>manage.py<span class="w"> </span>run
+</span></code></pre></div>
+<details>
+<summary>Или другим сервером...</summary>
+<div class="highlight"><pre><span></span><code><span id="__span-4-1">uvicorn<span class="w"> </span>example.asgi:app<span class="w"> </span>
+</span></code></pre></div>
+</details>
+<h3 id="_4">Обзор<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Главная роль manage.py файла установить env <strong>FASTTOWER_SETTINGS_MODULE</strong> указывающею путь до вашего settings.py 
+файла(<strong>example.settings</strong>). Вы можете
+установить ее сами и после этого использовать команду <strong>tower</strong>. Далее будет использоваться команда <strong>tower</strong>, но вы
+всегда можете использовать <strong>python manage.py</strong></p>
+<details>
+<summary>Запуск с установленной env...</summary>
+<div class="highlight"><pre><span></span><code><span id="__span-5-1">tower<span class="w"> </span>run
+</span></code></pre></div>
+</details>
+<h3 id="_5">Структура проекта<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="asgipy">asgi.py<a class="headerlink" href="#asgipy" title="Permanent link">&para;</a></h4>
+<p>FastTower - это полностью совместимый FastAPI class.</p>
+<div class="highlight"><pre><span></span><code><span id="__span-6-1"><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-6-2"><span class="sd">ASGI config for example project.</span>
+</span><span id="__span-6-3">
+</span><span id="__span-6-4"><span class="sd">It exposes the ASGI callable as a module-level variable named ``application``.</span>
+</span><span id="__span-6-5"><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-6-6">
+</span><span id="__span-6-7"><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-6-8">
+</span><span id="__span-6-9"><span class="kn">from</span> <span class="nn">fasttower.utils</span> <span class="kn">import</span> <span class="n">setup</span>
+</span><span id="__span-6-10">
+</span><span id="__span-6-11"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;FASTTOWER_SETTINGS_MODULE&quot;</span><span class="p">,</span> <span class="s2">&quot;example.settings&quot;</span><span class="p">)</span>
+</span><span id="__span-6-12"><span class="n">setup</span><span class="p">()</span>
+</span><span id="__span-6-13">
+</span><span id="__span-6-14"><span class="kn">from</span> <span class="nn">fasttower.server</span> <span class="kn">import</span> <span class="n">FastTower</span>
+</span><span id="__span-6-15">
+</span><span id="__span-6-16"><span class="kn">from</span> <span class="nn">example.routers</span> <span class="kn">import</span> <span class="n">router</span>
+</span><span id="__span-6-17">
+</span><span id="__span-6-18"><span class="n">app</span> <span class="o">=</span> <span class="n">FastTower</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;FastTower API Documentation&quot;</span><span class="p">)</span>
+</span><span id="__span-6-19">
+</span><span id="__span-6-20"><span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">router</span><span class="p">)</span>
+</span></code></pre></div>
+<details>
+<summary>Если не нужен tortoise...</summary>
+<p>Уберите lifespan
+<div class="highlight"><pre><span></span><code><span id="__span-7-1"><span class="n">lifespan</span><span class="o">=</span><span class="n">lifespans</span><span class="p">([</span><span class="n">tortoise_lifespan</span><span class="p">])</span>
+</span></code></pre></div></p>
+</details>
+<h4 id="settingspy">settings.py<a class="headerlink" href="#settingspy" title="Permanent link">&para;</a></h4>
+<p>Вправду очень похоже на Django?</p>
+<p>Основные поля: INSTALLED_APPS, MIDDLEWARE, USER_MODEL(Только tortoise!)</p>
+<div class="highlight"><pre><span></span><code><span id="__span-8-1"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-8-2">
+</span><span id="__span-8-3"><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
+</span><span id="__span-8-4">
+</span><span id="__span-8-5"><span class="c1"># SECURITY WARNING: keep the secret key used in production secret!</span>
+</span><span id="__span-8-6"><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s2">&quot;niJEjVCDfqHI_Fke_oUDVgcqkfWfW8ZEoUT_OQxVKco&quot;</span>
+</span><span id="__span-8-7">
+</span><span id="__span-8-8"><span class="c1"># SECURITY WARNING: don&#39;t run with debug turned on in production!</span>
+</span><span id="__span-8-9"><span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-8-10">
+</span><span id="__span-8-11"><span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span>
+</span><span id="__span-8-12">
+</span><span id="__span-8-13"><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-8-14">    <span class="s1">&#39;fasttower.apps.taerich&#39;</span><span class="p">,</span>
+</span><span id="__span-8-15">    <span class="s1">&#39;fasttower.auth&#39;</span><span class="p">,</span>
+</span><span id="__span-8-16"><span class="p">]</span>
+</span><span id="__span-8-17">
+</span><span id="__span-8-18"><span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-8-19">    <span class="p">[</span><span class="s2">&quot;fastapi.middleware.trustedhost:TrustedHostMiddleware&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;allowed_hosts&quot;</span><span class="p">:</span> <span class="n">ALLOWED_HOSTS</span><span class="p">}],</span>
+</span><span id="__span-8-20">    <span class="p">[</span><span class="s2">&quot;fastapi.middleware.gzip:GZipMiddleware&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;minimum_size&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;compresslevel&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}],</span>
+</span><span id="__span-8-21"><span class="p">]</span>
+</span><span id="__span-8-22"><span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+</span><span id="__span-8-23">    <span class="n">MIDDLEWARE</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;debug_toolbar.middleware:DebugToolbarMiddleware&quot;</span><span class="p">],</span>
+</span><span id="__span-8-24">
+</span><span id="__span-8-25"><span class="n">USER_MODEL</span> <span class="o">=</span> <span class="s1">&#39;fasttower.auth.models:BaseUser&#39;</span>
+</span><span id="__span-8-26">
+</span><span id="__span-8-27"><span class="n">ASGI</span> <span class="o">=</span> <span class="s2">&quot;example.asgi:app&quot;</span>
+</span><span id="__span-8-28">
+</span><span id="__span-8-29"><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s2">&quot;en-us&quot;</span>
+</span><span id="__span-8-30"><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s2">&quot;UTC&quot;</span>
+</span><span id="__span-8-31"><span class="n">USE_TZ</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-8-32">
+</span><span id="__span-8-33"><span class="c1"># Database</span>
+</span><span id="__span-8-34"><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-8-35">    <span class="s2">&quot;connections&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-8-36">        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-8-37">            <span class="s2">&quot;engine&quot;</span><span class="p">:</span> <span class="s2">&quot;tortoise.backends.sqlite&quot;</span><span class="p">,</span>
+</span><span id="__span-8-38">            <span class="s2">&quot;credentials&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-8-39">                <span class="s2">&quot;file_path&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s2">&quot;db.sqlite3&quot;</span><span class="p">),</span>
+</span><span id="__span-8-40">            <span class="p">}</span>
+</span><span id="__span-8-41">        <span class="p">},</span>
+</span><span id="__span-8-42">    <span class="p">},</span>
+</span><span id="__span-8-43"><span class="p">}</span>
+</span><span id="__span-8-44">
+</span><span id="__span-8-45"><span class="c1"># https://github.com/fastapi-admin/fastapi-admin</span>
+</span><span id="__span-8-46"><span class="n">ADMIN_PANEL_REDIS</span> <span class="o">=</span> <span class="s1">&#39;redis://localhost:6379/0&#39;</span>
+</span></code></pre></div>
+<h5 id="installed_apps">INSTALLED_APPS<a class="headerlink" href="#installed_apps" title="Permanent link">&para;</a></h5>
+<p>После создания нового приложения обязательно добавьте его в <strong>INSTALLED_APPS</strong>! Иначе у FastTower не будет доступа к
+моделям и командам
+приложения
+<div class="highlight"><pre><span></span><code><span id="__span-9-1"><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-9-2">    <span class="s1">&#39;fasttower.apps.taerich&#39;</span><span class="p">,</span>
+</span><span id="__span-9-3">    <span class="s1">&#39;fasttower.auth&#39;</span><span class="p">,</span>
+</span><span id="__span-9-4">    <span class="o">...</span>
+</span><span id="__span-9-5">    <span class="s1">&#39;appexample&#39;</span><span class="p">,</span>
+</span><span id="__span-9-6"><span class="p">]</span>
+</span></code></pre></div></p>
+<h5 id="middleware">MIDDLEWARE<a class="headerlink" href="#middleware" title="Permanent link">&para;</a></h5>
+<p>Поддерживаются все starlette совместимые middleware!</p>
+<p>Структура MIDDLEWARE</p>
+<div class="highlight"><pre><span></span><code><span id="__span-10-1"><span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-10-2">    <span class="p">[</span><span class="s2">&quot;fastapi.middleware.trustedhost:TrustedHostMiddleware&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;allowed_hosts&quot;</span><span class="p">:</span> <span class="n">ALLOWED_HOSTS</span><span class="p">}],</span>
+</span><span id="__span-10-3">    <span class="p">[</span><span class="s2">&quot;fastapi.middleware.gzip:GZipMiddleware&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;minimum_size&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;compresslevel&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}],</span>
+</span><span id="__span-10-4">    <span class="o">...</span>
+</span><span id="__span-10-5">    <span class="p">[</span><span class="s2">&quot;path:class&quot;</span><span class="p">,</span> <span class="p">{</span><span class="o">...</span><span class="n">kwargs</span><span class="p">}],</span>
+</span><span id="__span-10-6"><span class="p">]</span>
+</span></code></pre></div>
+<h4 id="routerspy">routers.py<a class="headerlink" href="#routerspy" title="Permanent link">&para;</a></h4>
+<p>Является отправной точкой для всех будущих APPs</p>
+<div class="highlight"><pre><span></span><code><span id="__span-11-1"><span class="kn">from</span> <span class="nn">fasttower.routers</span> <span class="kn">import</span> <span class="n">APIRouter</span>
+</span><span id="__span-11-2">
+</span><span id="__span-11-3"><span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;/api/v1&quot;</span><span class="p">)</span>
+</span><span id="__span-11-4"><span class="n">router</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">APP_ROUTER</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;/app&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="_6">Создание нового приложения<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Выполните команду которая создаст приложение</p>
+<div class="highlight"><pre><span></span><code><span id="__span-12-1">tower<span class="w"> </span>g<span class="w"> </span>a<span class="w"> </span>appexample
+</span></code></pre></div>
+<p>После ее выполнения обязательно добавьте приложение в <strong>settings.py -&gt; INSTALLED_APPS</strong></p>
+<div class="highlight"><pre><span></span><code><span id="__span-13-1"><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-13-2">    <span class="s1">&#39;fasttower.apps.taerich&#39;</span><span class="p">,</span>
+</span><span id="__span-13-3">    <span class="s1">&#39;fasttower.auth&#39;</span><span class="p">,</span>
+</span><span id="__span-13-4">    <span class="o">...</span>
+</span><span id="__span-13-5">    <span class="s1">&#39;appexample&#39;</span><span class="p">,</span>
+</span><span id="__span-13-6"><span class="p">]</span>
+</span></code></pre></div>
+<p>Каждое приложение содержит <strong>config.py, models.py, admin.py, serializers.py, routers.py и views.py</strong></p>
+<h4 id="models">Models<a class="headerlink" href="#models" title="Permanent link">&para;</a></h4>
+<p>Основано на <a href="https://tortoise.github.io/">tortoise</a>, так что вы можете просто импортировать ее и работать с ней!</p>
+<div class="highlight"><pre><span></span><code><span id="__span-14-1"><span class="kn">from</span> <span class="nn">fasttower.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span id="__span-14-2">
+</span><span id="__span-14-3">
+</span><span id="__span-14-4"><span class="k">class</span> <span class="nc">FastTowerModel</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span id="__span-14-5">    <span class="n">say</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="admin">Admin<a class="headerlink" href="#admin" title="Permanent link">&para;</a></h4>
+<p>Тут содержится описание моделей для <a href="https://fastapi-admin-docs.long2ice.io/">админ панели</a></p>
+<div class="highlight"><pre><span></span><code><span id="__span-15-1"><span class="kn">from</span> <span class="nn">fastapi_admin.resources</span> <span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Dropdown</span>
+</span><span id="__span-15-2"><span class="kn">from</span> <span class="nn">fasttower</span> <span class="kn">import</span> <span class="n">admin</span>
+</span><span id="__span-15-3">
+</span><span id="__span-15-4"><span class="kn">from</span> <span class="nn">appexample</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span id="__span-15-5">
+</span><span id="__span-15-6">
+</span><span id="__span-15-7"><span class="nd">@admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">register</span>
+</span><span id="__span-15-8"><span class="k">class</span> <span class="nc">AppexampleTabMenu</span><span class="p">(</span><span class="n">Dropdown</span><span class="p">):</span>
+</span><span id="__span-15-9">    <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Appexamples&quot;</span>
+</span><span id="__span-15-10">    <span class="n">icon</span> <span class="o">=</span> <span class="s2">&quot;fas fa-bars&quot;</span>
+</span><span id="__span-15-11">    <span class="n">resources</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-15-12">    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Appexamples&quot;</span>
+</span></code></pre></div>
+<h4 id="views">Views<a class="headerlink" href="#views" title="Permanent link">&para;</a></h4>
+<p>Тут все аналогично FastAPI, скоро появятся <strong>mixins</strong> как в Django для простых <strong>CRUD</strong> задач!</p>
+<div class="highlight"><pre><span></span><code><span id="__span-16-1"><span class="kn">from</span> <span class="nn">appexample.models</span> <span class="kn">import</span> <span class="n">FastTowerModel</span>
+</span><span id="__span-16-2">
+</span><span id="__span-16-3"><span class="kn">from</span> <span class="nn">fasttower.routers</span> <span class="kn">import</span> <span class="n">APIRouter</span>
+</span><span id="__span-16-4">
+</span><span id="__span-16-5"><span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">()</span>
+</span><span id="__span-16-6">
+</span><span id="__span-16-7">
+</span><span id="__span-16-8"><span class="nd">@router</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+</span><span id="__span-16-9"><span class="k">async</span> <span class="k">def</span> <span class="nf">say</span><span class="p">():</span>
+</span><span id="__span-16-10">    <span class="k">return</span> <span class="k">await</span> <span class="n">FastTowerModel</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Не забудьте подключить в <strong>appexample.routers</strong>, а так же в <strong>example.routers</strong></p>
+<h2 id="admin-panel">Admin panel<a class="headerlink" href="#admin-panel" title="Permanent link">&para;</a></h2>
+<p>Является экспериментальной функцией. В настоящее время для ее работы требуется
+<a href="https://github.com/redis/redis-py"><strong>Redis</strong></a></p>
+<p>Проверьте в settings.py</p>
+<div class="highlight"><pre><span></span><code><span id="__span-17-1">ADMIN_PANEL_REDIS = &#39;redis://localhost:6379/0&#39;
+</span></code></pre></div>
+<p>А так же включите его в asgi.py</p>
+<div class="highlight"><pre><span></span><code><span id="__span-18-1"><span class="kn">from</span> <span class="nn">fasttower.admin.site</span> <span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">admin_app</span><span class="p">,</span> <span class="n">lifespan_admin</span>
+</span><span id="__span-18-2"><span class="kn">from</span> <span class="nn">fasttower.db</span> <span class="kn">import</span> <span class="n">lifespan</span>
+</span><span id="__span-18-3">
+</span><span id="__span-18-4"><span class="n">app</span> <span class="o">=</span> <span class="n">FastTower</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;FastTower API Documentation&quot;</span><span class="p">,</span> <span class="n">lifespan</span><span class="o">=</span><span class="n">lifespans</span><span class="p">([</span><span class="n">lifespan</span><span class="p">,</span> <span class="n">lifespan_admin</span><span class="p">]))</span>
+</span><span id="__span-18-5">
+</span><span id="__span-18-6"><span class="n">app</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/admin&#39;</span><span class="p">,</span> <span class="n">admin_app</span><span class="p">)</span>
+</span></code></pre></div>
+<details>
+<summary>Полный код...</summary>
+<div class="highlight"><pre><span></span><code><span id="__span-19-1"><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-19-2"><span class="sd">ASGI config for example project.</span>
+</span><span id="__span-19-3">
+</span><span id="__span-19-4"><span class="sd">It exposes the ASGI callable as a module-level variable named ``application``.</span>
+</span><span id="__span-19-5"><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-19-6">
+</span><span id="__span-19-7"><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-19-8">
+</span><span id="__span-19-9"><span class="kn">from</span> <span class="nn">fasttower.utils</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">lifespans</span>
+</span><span id="__span-19-10">
+</span><span id="__span-19-11"><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;FASTTOWER_SETTINGS_MODULE&quot;</span><span class="p">,</span> <span class="s2">&quot;example.settings&quot;</span><span class="p">)</span>
+</span><span id="__span-19-12"><span class="n">setup</span><span class="p">()</span>
+</span><span id="__span-19-13">
+</span><span id="__span-19-14"><span class="kn">from</span> <span class="nn">fasttower.server</span> <span class="kn">import</span> <span class="n">FastTower</span>
+</span><span id="__span-19-15">
+</span><span id="__span-19-16"><span class="kn">from</span> <span class="nn">example.routers</span> <span class="kn">import</span> <span class="n">router</span>
+</span><span id="__span-19-17"><span class="kn">from</span> <span class="nn">fasttower.admin.site</span> <span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">admin_app</span><span class="p">,</span> <span class="n">lifespan_admin</span>
+</span><span id="__span-19-18"><span class="kn">from</span> <span class="nn">fasttower.db</span> <span class="kn">import</span> <span class="n">lifespan</span>
+</span><span id="__span-19-19">
+</span><span id="__span-19-20"><span class="n">app</span> <span class="o">=</span> <span class="n">FastTower</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;FastTower API Documentation&quot;</span><span class="p">,</span> <span class="n">lifespan</span><span class="o">=</span><span class="n">lifespans</span><span class="p">([</span><span class="n">lifespan</span><span class="p">,</span> <span class="n">lifespan_admin</span><span class="p">]))</span>
+</span><span id="__span-19-21">
+</span><span id="__span-19-22"><span class="n">app</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/admin&#39;</span><span class="p">,</span> <span class="n">admin_app</span><span class="p">)</span>
+</span><span id="__span-19-23">
+</span><span id="__span-19-24"><span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">router</span><span class="p">)</span>
+</span></code></pre></div>
+</details>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<p>Список текущих команд и их описания вы можете получить используя команду
+<div class="highlight"><pre><span></span><code><span id="__span-20-1">tower<span class="w"> </span>--help
+</span></code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span id="__span-21-1"> Usage: tower [OPTIONS] COMMAND [ARGS]...                                                                                                                                                                                         
+</span><span id="__span-21-2">
+</span><span id="__span-21-3">╭─ Options ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+</span><span id="__span-21-4">│ --install-completion          Install completion for the current shell.                                                                                                                                                        │
+</span><span id="__span-21-5">│ --show-completion             Show completion for the current shell, to copy it or customize the installation.                                                                                                                 │
+</span><span id="__span-21-6">│ --help                        Show this message and exit.                                                                                                                                                                      │
+</span><span id="__span-21-7">╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+</span><span id="__span-21-8">╭─ Commands ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+</span><span id="__span-21-9">│ db          Database commands                                                                                                                                                                                                  │
+</span><span id="__span-21-10">│ g           Generate project structures and app components for FastTower.                                                                                                                                                      │
+</span><span id="__span-21-11">│ run         Запуск FastTower сервера                                                                                                                                                                                           │
+</span><span id="__span-21-12">│ shell       Запускает интерактивную оболочку.                                                                                                                                                                                  │
+</span><span id="__span-21-13">│ superuser   Create a superuser.                                                                                                                                                                                                │
+</span><span id="__span-21-14">╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+</span></code></pre></div>
+<h3 id="_7">Создание новых команд<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Для этого создайте файл в папке <strong>app</strong>(appexample) commands.py</p>
+<div class="highlight"><pre><span></span><code><span id="__span-22-1"><span class="kn">import</span> <span class="nn">typer</span>
+</span><span id="__span-22-2">
+</span><span id="__span-22-3"><span class="n">example_commands</span> <span class="o">=</span> <span class="n">typer</span><span class="o">.</span><span class="n">Typer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;appexample&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Example commands&quot;</span><span class="p">)</span>
+</span><span id="__span-22-4">
+</span><span id="__span-22-5">
+</span><span id="__span-22-6"><span class="nd">@example_commands</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+</span><span id="__span-22-7"><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
+</span><span id="__span-22-8">    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Вот и все её можно запустить!</p>
+<div class="highlight"><pre><span></span><code><span id="__span-23-1">tower<span class="w"> </span>appexample<span class="w"> </span>hello-world
+</span></code></pre></div>
+<div class="highlight"><pre><span></span><code><span id="__span-24-1">Hello<span class="w"> </span>World!
+</span></code></pre></div>
+<p>Более детально про <a href="https://typer.tiangolo.com/">Typer</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/pysashapy/fasttower" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.tabs.link", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.path", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
